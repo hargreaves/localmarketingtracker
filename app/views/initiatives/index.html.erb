@@ -30,10 +30,10 @@
     <td><%= initiative.name %></td>
     <td><%= initiative.market.name %></td>
     <td><%= initiative.launchdate %></td>
-    <td><%= initiative.budget %></td>
+    <td>$<%= initiative.budget %></td>
     <td><%= initiative.targetemails %></td>
     <td><%= initiative.actualemails %></td>
-    <td><%= initiative.spent %></td>
+    <td>$<%= initiative.spent %></td>
     <td><%= initiative.teamlead %></td>
     <td><%= button_to 'View', initiative, :method => 'get', :class => "btn btn-info" %></td>
   </tr>

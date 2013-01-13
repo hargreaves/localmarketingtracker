@@ -1,9 +1,10 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Name:</b>
+<div class="span12">
+
+<h3>
   <%= @initiative.name %>
-</p>
+</h3>
 
 <p>
   <b>Market:</b>
@@ -32,12 +33,12 @@
 
 <p>
   <b>Landing Page:</b>
-  <%= @initiative.landingpage %>
+  <a href="http://<%= @initiative.landingpage %>"><%= @initiative.landingpage %></a>
 </p>
 
 <p>
   <b>Budget:</b>
-  <%= @initiative.budget %>
+  $<%= @initiative.budget %>
 </p>
 
 <p>
@@ -52,7 +53,7 @@
 
 <p>
   <b>Spent:</b>
-  <%= @initiative.spent %>
+  $<%= @initiative.spent %>
 </p>
 
 <p>
@@ -60,6 +61,10 @@
   <%= @initiative.teamlead %>
 </p>
 
+<br />
 
-<%= link_to 'Edit', edit_initiative_path(@initiative) %> |
-<%= link_to 'Back', initiatives_path %>
+<div class="span3">
+<%= button_to 'Update Initiative', edit_initiative_path(@initiative), :method => 'get', :class => 'btn btn-primary' %> 
+<%= button_to 'Return to List', initiatives_path, :method => 'get', :class => 'btn' %>
+</div>
+</div>
