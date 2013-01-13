@@ -1,0 +1,65 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @initiative.name %>
+</p>
+
+<p>
+  <b>Market:</b>
+  <%= @initiative.market.name %>
+</p>
+
+<p>
+  <b>Launch Date:</b>
+  <%= @initiative.launchdate %>
+</p>
+
+<p>
+  <b>End Date:</b>
+  <%= @initiative.enddate %>
+</p>
+
+<p>
+  <b>Target:</b>
+  <%= @initiative.target %>
+</p>
+
+<p>
+  <b>Offer:</b>
+  <%= @initiative.offer %>
+</p>
+
+<p>
+  <b>Landing Page:</b>
+  <%= @initiative.landingpage %>
+</p>
+
+<p>
+  <b>Budget:</b>
+  <%= @initiative.budget %>
+</p>
+
+<p>
+  <b>Target Emails:</b>
+  <%= @initiative.targetemails %>
+</p>
+
+<p>
+  <b>Actual Emails:</b>
+  <%= @initiative.actualemails %>
+</p>
+
+<p>
+  <b>Spent:</b>
+  <%= @initiative.spent %>
+</p>
+
+<p>
+  <b>Team Lead:</b>
+  <%= @initiative.teamlead %>
+</p>
+
+
+<%= link_to 'Edit', edit_initiative_path(@initiative) %> |
+<%= link_to 'Back', initiatives_path %>

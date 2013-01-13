@@ -1,0 +1,42 @@
+<div class="container-fluid">
+<div class="row-fluid">
+	<div class="span6">
+		<h3>Initiatives</h3>
+	</div>
+
+	<div class="span3 offset3">
+			<br /> 
+		<%= button_to 'Create New Initiative', new_initiative_path, :method => :get, :class => "btn btn-primary" %>
+	</div>
+</div>
+</div>
+
+<div class="span12">
+<table class="table table-striped">
+  <tr>
+    <th>Name</th>
+    <th>Market</th>
+    <th>Launch Date</th>  
+    <th>Budget</th>
+    <th>Target Emails</th>
+    <th>Actual Emails</th>
+    <th>Spent</th>
+    <th>Team Lead</th>
+    <th></th>
+  </tr>
+
+<% @initiatives.sort_by(&:updated_at).reverse.each do |initiative| %>
+  <tr>
+    <td><%= initiative.name %></td>
+    <td><%= initiative.market.name %></td>
+    <td><%= initiative.launchdate %></td>
+    <td><%= initiative.budget %></td>
+    <td><%= initiative.targetemails %></td>
+    <td><%= initiative.actualemails %></td>
+    <td><%= initiative.spent %></td>
+    <td><%= initiative.teamlead %></td>
+    <td><%= button_to 'View', initiative, :method => 'get', :class => "btn btn-info" %></td>
+  </tr>
+<% end %>
+</table>
+</div>

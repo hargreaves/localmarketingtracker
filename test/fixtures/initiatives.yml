@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  launchdate: 2013-01-12
+  enddate: 2013-01-12
+  target: MyText
+  offer: MyText
+  landingpage: MyString
+  budget: 1
+  targetemails: 1
+  actualemails: 1
+  spent: 1
+  teamlead: MyString
+
+two:
+  name: MyString
+  launchdate: 2013-01-12
+  enddate: 2013-01-12
+  target: MyText
+  offer: MyText
+  landingpage: MyString
+  budget: 1
+  targetemails: 1
+  actualemails: 1
+  spent: 1
+  teamlead: MyString

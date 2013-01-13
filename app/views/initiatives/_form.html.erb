@@ -1,0 +1,112 @@
+<%= form_for(@initiative, :html => { :class => 'form-horizontal' } ) do |f| %>
+  <% if @initiative.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@initiative.errors.count, "error") %> prohibited this initiative from being saved:</h2>
+
+      <ul>
+      <% @initiative.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+<fieldset>
+  <div class="control-group">
+    <%= f.label "Name", :class => 'control-label' %>
+    <div class="controls">
+    <%= f.text_field :name, :placeholder => "Coffee Shop Takeover" %>
+    </div>
+  </div>
+  
+    <div class="control-group">
+    <%= f.label "Market", :class => 'control-label' %>
+    <div class="controls">
+    <%= f.collection_select( :market_id, Market.all, :id, :name ) %>
+    </div>
+  </div>
+  
+  <div class="control-group">
+  	<%= f.label "Launch Date", :class => 'control-label' %>
+  	<div class="controls">
+    <%= f.date_select :launchdate, { :style => "width: 500px;" }  %>
+    </div>
+  </div>
+  
+  <div class="control-group">
+  	<%= f.label "End Date", :class => 'control-label' %>
+  	<div class="controls">
+    <%= f.date_select :enddate %>
+    </div>
+  </div>
+  
+  <div class="control-group">
+  	<%= f.label "Target Audience", :class => 'control-label' %>
+  	<div class="controls">
+    <%= f.text_area :target, :rows => "5", :placeholder => "Disgruntled lawyers", :style => "width:450px;"    %>
+    </div>
+  </div>
+  
+  <div class="control-group">
+  	<%= f.label "Offer / Value Prop", :class => 'control-label' %>
+  	<div class="controls">
+    <%= f.text_area :offer, :cols => "100", :rows => "5", :placeholder => "Win a free class!", :style => "width:450px;"    %>
+    </div>
+  </div>
+  
+  <div class="control-group">
+  	<%= f.label "Landing Page URL", :class => 'control-label' %>
+  	<div class="controls">
+  	  	 <div class="input-prepend">
+  		<span class="add-on">http://</span>
+    <%= f.text_field :landingpage, :placeholder => "generalassemb.ly", :style => "width:390px;"    %>
+    	</div>
+    </div>
+  </div>
+  
+  <div class="control-group">
+  	<%= f.label "Budget", :class => 'control-label' %>
+  	<div class="controls">
+  	  	<div class="input-prepend">
+  		<span class="add-on">$</span>
+    <%= f.number_field :budget, :placeholder => "100.00"  %>
+    	</div>
+    </div>
+  </div>
+  
+  <div class="control-group">
+  	<%= f.label "Target New Emails", :class => 'control-label' %>
+  	<div class="controls">
+    <%= f.number_field :targetemails, :placeholder => "500"   %>
+    </div>
+  </div>
+  
+  <div class="control-group">
+  	<%= f.label "Actual New Emails", :class => 'control-label' %>
+  	<div class="controls">
+    <%= f.number_field :actualemails %>
+    </div>
+  </div>
+  
+  <div class="control-group">
+  	<%= f.label "Money Spent", :class => 'control-label' %>
+  	<div class="controls">
+  	 	<div class="input-prepend">
+  		<span class="add-on">$</span>
+    <%= f.number_field :spent %>
+    	</div>
+    </div>
+  </div>
+  
+  <div class="control-group">
+  	<%= f.label "Team Lead", :class => 'control-label' %>
+  	<div class="controls">
+    <%= f.text_field :teamlead, :placeholder => "Brad Hargreaves"   %>
+    </div>
+  </div>
+  
+  <div class="form-actions">
+    <%= f.submit 'Create Initiative', :class => 'btn btn-primary' %>
+  </div>
+</fieldset>
+<% end %>
