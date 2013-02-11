@@ -1,7 +1,8 @@
 <div class="container-fluid">
 <div class="row-fluid">
 	<div class="span6">
-		<h3>Initiatives</h3>
+		<h4>General Assembly Marketing Initiatives</h4>
+		<h6>All initiatives © General Assembly Space Inc 2010-3</h6>
 	</div>
 
 	<div class="span3 offset3">
@@ -30,7 +31,12 @@
 
 <% @initiatives.sort_by(&:launchdate).reverse.each do |initiative| %>
   <tr>
-    <td><%= initiative.name %></td>
+     <td><% if initiative.name.empty? %>
+        <%= button_to 'HUH?', edit_initiative_path(initiative), :method => 'get', :class => "btn btn-danger" %>
+    <% else %>
+    	<%= initiative.name %>
+    <% end %>
+    </td>
     <td><%= initiative.market.name %></td>
     <td><%= initiative.launchdate.strftime('%m/%d') %></td>
     <td><%= initiative.enddate.strftime('%m/%d') %></td>
@@ -48,9 +54,53 @@
     	$<%= initiative.spent %>
     <% end %>
     </td>
-    <td><%= initiative.teamlead %></td>
+    <td><% if initiative.teamlead.empty? %>
+        <%= button_to 'MISSING', edit_initiative_path(initiative), :method => 'get', :class => "btn btn-danger" %>
+    <% else %>
+    	<%= initiative.teamlead %>
+    <% end %>
+    </td>
     <td><%= button_to 'View', initiative, :method => 'get', :class => "btn btn-info" %></td>
   </tr>
 <% end %>
 </table>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+What are you doing down here? 
+<br />
+<br />
+<br />
 </div>
