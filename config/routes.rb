@@ -1,6 +1,8 @@
 Marketingtracker::Application.routes.draw do
   resources :initiatives
   
+  resources :markets
+  
   root :to => 'initiatives#index'
 
   # The priority is based upon order of creation:

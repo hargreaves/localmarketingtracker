@@ -1,4 +1,15 @@
 class MarketsController < ApplicationController
+
+  def index
+  	
+    	@markets = Market.all
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @initiatives }
+    end
+  end
+
   def new
     @market = Market.new
 

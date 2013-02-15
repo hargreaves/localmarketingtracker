@@ -9,16 +9,17 @@
 </head>
 <body>
   <div id="container" class="container">
-    <header class="navbar navbar-fixed-top">
-      <nav class="navbar-inner">
-        <div class="container">
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+      	<div id="container" class="container">
           <%= render 'layouts/navigation' %>
-        </div>
-      </nav>
+       	 </div>
+      	</div>
+      </div>
     </header>
     <div id="main" role="main">
 		<%= yield %>
 	</div>
-  </div> <!--! end of #container -->
+  </div>
 </body>
 </html>

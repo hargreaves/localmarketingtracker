@@ -1,0 +1,30 @@
+<div class="container-fluid">
+<div class="row-fluid">
+	<div class="span6">
+		<h4>Market Stats</h4>
+		<h6>All stats © General Assembly Space Inc 2010-3</h6>
+	</div>
+</div>
+</div>
+
+<div class="span12">
+<table class="table table-striped">
+  <tr>
+    <th>Market</th>
+    <th>Total Target Emails</th>
+  </tr>
+  
+<% @markets.each do |market| %>
+  <tr>
+    <td><%= market.name %></td>
+    <% targetemailsum = 0;
+       Initiative.where(:market_id => market.id).each do |initiative|
+       		if initiative.targetemails.nil?
+       		else
+       			targetemailsum += initiative.targetemails
+       		end
+   		end %>
+    <td><%= targetemailsum %></td> 
+  </tr>
+<% end %>
+</table></div>
