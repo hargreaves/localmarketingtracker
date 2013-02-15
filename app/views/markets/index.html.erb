@@ -12,19 +12,40 @@
   <tr>
     <th>Market</th>
     <th>Total Target Emails</th>
+    <th>Total Actual New Emails</th>
+    <th>Total Allocated $</th>
+    <th>Total Spent</th>
   </tr>
   
 <% @markets.each do |market| %>
   <tr>
     <td><%= market.name %></td>
     <% targetemailsum = 0;
+       actualemailsum = 0;
+       totalbudgeted = 0;
+       totalspent = 0;
        Initiative.where(:market_id => market.id).each do |initiative|
        		if initiative.targetemails.nil?
        		else
        			targetemailsum += initiative.targetemails
        		end
+       		if initiative.actualemails.nil?
+       		else
+       			actualemailsum += initiative.actualemails
+       		end
+       		if initiative.budget.nil?
+       		else
+       			totalbudgeted += initiative.budget
+       		end
+       		if initiative.spent.nil?
+       		else
+       			totalspent += initiative.spent
+       		end
    		end %>
     <td><%= targetemailsum %></td> 
+    <td><%= actualemailsum %></td> 
+    <td>$<%= totalbudgeted %></td> 
+    <td>$<%= totalspent %></td> 
   </tr>
 <% end %>
 </table></div>
