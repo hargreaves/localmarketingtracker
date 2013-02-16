@@ -1,17 +1,20 @@
 class InitiativesController < ApplicationController
    http_basic_authenticate_with :name => "ga", :password => "902broadway"
 
+  helper_method :sort_column, :sort_direction  
+
   # GET /initiatives
   # GET /initiatives.json
   def index
   	
-    	@initiatives = Initiative.all
+    	@initiatives = Initiative.order(sort_column + ' ' + sort_direction)
 
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @initiatives }
     end
   end
+  
 
   # GET /initiatives/1
   # GET /initiatives/1.json
@@ -83,4 +86,15 @@ class InitiativesController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+    
+private  
+  def sort_column  
+    params[:sort] || "launchdate"  
+  end  
+    
+  def sort_direction  
+    params[:direction] || "desc"  
+  end    
+  
 end
