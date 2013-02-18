@@ -19,7 +19,7 @@
     <th>Spent $ in Tracker</th>
   </tr>
   
-<% @markets.each do |market| %>
+<% @markets.sort_by(&:id).each do |market| %>
   <tr>
     <td><%= market.name %></td>
     <td><%= market.q12013_target %></td>
