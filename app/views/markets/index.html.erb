@@ -11,15 +11,18 @@
 <table class="table table-striped">
   <tr>
     <th>Market</th>
-    <th>Total Target Emails</th>
-    <th>Total Actual New Emails</th>
-    <th>Total Allocated $</th>
-    <th>Total Spent</th>
+    <th>Q1 Email Target</th>
+    <th>Target in Tracker</th>
+    <th>Actual in Tracker</th>
+    <th>Q1 Budget</th>
+    <th>Allocated $ in Tracker</th>
+    <th>Spent $ in Tracker</th>
   </tr>
   
 <% @markets.each do |market| %>
   <tr>
     <td><%= market.name %></td>
+    <td><%= market.q12013_target %></td>
     <% targetemailsum = 0;
        actualemailsum = 0;
        totalbudgeted = 0;
@@ -44,6 +47,7 @@
    		end %>
     <td><%= targetemailsum %></td> 
     <td><%= actualemailsum %></td> 
+    <td>$<%= market.q12013_budget %></td> 
     <td>$<%= totalbudgeted %></td> 
     <td>$<%= totalspent %></td> 
   </tr>
